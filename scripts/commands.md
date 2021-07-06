@@ -3,30 +3,20 @@
 cp ~/databases/silva/all_records_headers.txt .
 ```
 
-
-## count bact phyla
+## count bacterial phyla
 ```
 grep Bacteria all_records_headers.txt | awk '{print $2}' | cut -d ';' -f2 | sort | uniq -c | sort -nr -k1 > bact_phyla_counts.txt
 awk 'BEGIN{OFS="\t"}{print $2, $1}' reduced_bact_phyla_counts.txt > reduced_bact_phyla_counts.tab
 grep Bacteria all_records_headers.txt | awk '{print $2}' | cut -d ';' -f2 | sort > bact_phyla_for_wordcloud.txt
 ```
 
-## count cyanos
-```
-grep Cyanobacteria all_records_headers.txt | awk '{print $2}' | cut -d ';' -f4 | sort | uniq -c | sort -nr -k1 | awk 'BEGIN{OFS="\t"}{print $2, $1}' > cyano_counts.tab
-```
+## count archaeal phyla
 
-## count asgards
-```
-grep Asgard all_records_headers.txt | awk '{print $2}' | cut -d ';' -f 3 | sort | uniq -c | sort -nr -k1 | awk 'BEGIN{OFS="\t"}{print $2, $1}' > asgard_counts.tab
-```
-
-## count archaea
 ```
 grep Archaea all_records_headers.txt | awk '{print $2}' | cut -d ';' -f2 | sort > arch_phyla_for_wordcloud.txt
 ```
 
-## count eukaryota
+## count eukaryal phyla
 ```
 grep Eukaryota all_records_headers.txt | awk '{print $2}' | cut -d ';' -f2 | sort > euks_phyla_for_wordcloud.txt
 ```
